@@ -4,7 +4,7 @@
 
 // Package googleapi contains the common code shared by all Google API
 // libraries.
-package googleapi // import "google.golang.org/api/googleapi"
+package googleapi
 
 import (
 	"bytes"
@@ -25,7 +25,7 @@ import (
 
 	"golang.org/x/net/context"
 	"golang.org/x/net/context/ctxhttp"
-	"google.golang.org/api/googleapi/internal/uritemplates"
+	"github.com/hatchling/google-api-go-client/googleapi/internal/uritemplates"
 )
 
 // ContentTyper is an interface for Readers which know (or would like
@@ -359,7 +359,9 @@ var (
 	rangeRE = regexp.MustCompile(`^bytes=0\-(\d+)$`)
 	// chunkSize is the size of the chunks created during a resumable upload and should be a power of two.
 	// 1<<18 is the minimum size supported by the Google uploader, and there is no maximum.
-	chunkSize int64 = 1 << 18
+	//
+	// Note: Edited to use 4MB chunks instead of 256KB
+	chunkSize int64 = 1 << 22
 )
 
 // Progress returns the number of bytes uploaded at this point.

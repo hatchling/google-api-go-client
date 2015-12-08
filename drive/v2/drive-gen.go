@@ -7,7 +7,7 @@
 //   import "google.golang.org/api/drive/v2"
 //   ...
 //   driveService, err := drive.New(oauthHttpClient)
-package drive // import "google.golang.org/api/drive/v2"
+package drive
 
 import (
 	"bytes"
@@ -17,7 +17,7 @@ import (
 	context "golang.org/x/net/context"
 	ctxhttp "golang.org/x/net/context/ctxhttp"
 	gensupport "google.golang.org/api/gensupport"
-	googleapi "google.golang.org/api/googleapi"
+	googleapi "github.com/hatchling/google-api-go-client/googleapi"
 	"io"
 	"net/http"
 	"net/url"
